@@ -1,4 +1,5 @@
 USE college;
+
 /*SELECT*/
 SELECT name FROM students;
 /*select multiple columns*/
