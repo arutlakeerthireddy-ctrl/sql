@@ -1,0 +1,31 @@
+#TCL-transaction control language
+#COMMIT
+START TRANSACTION;
+UPDATE students
+SET age=22
+WHERE id=1;
+SELECT*FROM students;
+COMMIT;
+
+/*ROLLBACK*/
+START TRANSACTION;
+UPDATE students
+SET age=30
+WHERE id=1;
+SELECT*FROM students;
+ROLLBACK;
+
+/*SAVEPOINT*/
+START TRANSACTION;
+UPDATE students
+SET age=23
+WHERE id=1;
+SAVEPOINT first_update;
+UPDATE students
+SET age=24
+WHERE id=2;
+ROLLBACK TO SAVEPOINT first_update;
+COMMIT;
+
+#ROLLBACK
+#SAVEPOINT
